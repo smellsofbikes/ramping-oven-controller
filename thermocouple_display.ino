@@ -1,26 +1,17 @@
-
+//arduino, based on code from multiple sources
 
 #include <SPI.h>
 #include "Adafruit_MAX31855.h"
 #include <LiquidCrystal.h>
 
-// Default connection is using software SPI, but comment and uncomment one of
-// the two examples below to switch between software SPI and hardware SPI:
-
-// Example creating a thermocouple instance with software SPI on any three
-// digital IO pins.
+// hardware SPI
 #define MAXDO   3
 #define MAXCS   4
 #define MAXCLK  5
 
-// initialize the Thermocouple
+// initialize the Thermocouple as hardware spi
 Adafruit_MAX31855 thermocouple(MAXCLK, MAXCS, MAXDO);
 LiquidCrystal lcd(11, 10, 9, 8, 7, 6);
-
-// Example creating a thermocouple instance with hardware SPI
-// on a given CS pin.
-//#define MAXCS   10
-//Adafruit_MAX31855 thermocouple(MAXCS);
 
 void setup() {
   Serial.begin(9600);
